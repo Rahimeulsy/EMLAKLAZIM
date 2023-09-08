@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 200px; /* Logo genişliği */
+            height: auto;
+            margin-left: 20px; /* Logo ile menü arasındaki boşluk */
+        }
+		.right-corner {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-corner button {
+            margin-left: 10px; /* Butonlar arasındaki boşluk */
+            background-color: #ffffff; /* Buton arkaplan rengi */
+            color: #000000; /* Buton metin rengi */
+            border: none; /* Buton kenarlığı yok */
+            padding: 10px 20px; /* Buton iç boşluğu */
+            cursor: pointer; /* Üzerine gelince fareyi işaretçiye dönüştür */
+			border-radius: 50px;
+			padding: 3px 11px; /* Buton iç boşluğu (küçültülmüş) */
+        }
+		.right-corner .post-ad-button {
+            background-color: #78b829; /* Yeşil arkaplan rengi */
+			color: #ffffff;
+        }
+
+        /* Sağ üst köşeye butonları konumlandırma */
+        .right-corner {
+            position: absolute;
+            top: 15px; /* Üst kenardan 10 piksel mesafe */
+            right: 10px; /* Sağ kenardan 10 piksel mesafe */
+        }
+
+        nav ul.menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul.menu li {
+            margin: 0 15px;
+        }
+
+        nav ul.menu li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul.menu li a:hover {
+            color: #f7b731;
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .buttons button {
+            margin-right: 20px;
+            padding: 8px 15px;
+            background-color:#78b829 ;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            border-radius: 100px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #333;
+            color: hsl(0, 0%, 95%);
+        } 
+		.icon-row {
+			display: flex; /* Flexbox kullanarak sıralama */
+			align-items: center; /* Yüksekliği ortala */
+			justify-content: center; /* Yatayda ortala */
+			
+		}
+
+		.icon {
+			position: relative; /* İçeriği yerleştirmek için pozisyonu ayarla */
+			margin-right: 20px; /* Resimler arasında sağda boşluk bırak */
+			margin-left: 5px;
+			text-align: center; /* Metni yatayda ortala */
+        	color: white; /* Metin rengini beyaz yap */
+			border: 2px solid #ffffff; /* Beyaz renkte 2 piksel çerçeve ekler */
+			border-radius: 20px; /* Kenarları ovalleştirir */
+			height: 110px;
+			margin-top: 50px; /* Çerçeveleri 10 piksel aşağı kaydırır */
+			
+		}
+		.icon img {
+			margin-right: 0px; /* Resimler arasındaki boşluğu margin ile ayarlayın */
+			padding: 17px; /* Resimlerin etrafındaki boşluğu padding ile ayarlayın */
+			filter: brightness(0) invert(1);/* Resimlerin rengini beyaz yapar */
+		}
+		.icon .text {
+		font-family:'Poppins' sans-serif;
+        position: absolute;
+        bottom: 0px; /* Metin ile resim arasındaki mesafeyi ayarlar */
+        left: 0;
+        width: 100%; /* Metin genişliğini çerçevenin genişliği kadar yap */
+        padding: 5px;
+        margin: 0;
+		
+    }
+	/* Haritada Ara butonu stilini tanımlayın */
+	.search-button {
+            background-color: #78b829; /* Buton arkaplan rengi */
+            color: #fff; /* Buton metin rengi */
+            border: none; /* Buton kenarlığı yok */
+            padding: 10px 20px; /* Buton iç boşluğu */
+            cursor: pointer; /* Üzerine gelince fareyi işaretçiye dönüştür */
+            border-radius: 50px; /* Kenarları kıvrık yapma */
+        }
+
+        /* Haritada Ara butonunu banner içinde konumlandırma */
+        .search-button-container {
+			font-family:'Poppins' sans-serif;
+            position: absolute;
+            bottom: 20px; /* Alttan 20 piksel mesafe */
+			top: 85%; /* Üst kenarı ortala */
+			left: 50%; /* Sol kenarı ortala */
+   			transform: translateX(-50%); /* Yatayda ortala */
+        }
+		
+      
+        .footer-main hr::before,
+        .footer-main hr::after {
+            content: "";
+            flex: 1;
+            height: 13px; /* Kalınlığı buradan ayarlayabilirsiniz */
+            background:#78b829;
+            margin: 0 10px; /* Çizgilerin sağ ve solunda boşluk ekleyebilirsiniz */
+        }
+
+        .footer-main hr {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            width: 100%;
+        }
+
+        .main-footer {
+            margin-top: 20px; /* Footer ile üstteki içerik arasındaki boşluğu ayarlayabilirsiniz */
+            padding-top: 20px; /* Footer ile üstteki içerik arasındaki boşluğu ayarlayabilirsiniz */
+        }
+
+        /* Footer üst kısmındaki üst boşluğu sıfırla */
+        .main-footer .footer-main {
+            padding-top: 0;
+        }
+
+        /* Footer üst kısmındaki üst boşluğu sıfırla */
+        .main-footer .footer-main h6 {
+            margin-top: 0;
+        }
+		
+
+		
+    </style>
+    <!-- Favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<!-- Title -->
+		<title>Reallist- Bootstrap Responsive Real estate Classifieds, Dealer, Rentel, Builder and Agent Multipurpose HTML Template</title>
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="assets/plugins/bootstrap-5/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+
+		<!-- Font-awesome  Css -->
+		<link href="assets/css/icons.css" rel="stylesheet"/>
+
+		<!--Select2 Css-->
+		<link href="assets/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- Owl Theme css-->
+		<link href="assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+		<link href="assets/plugins/owl-carousel/owl.carousel.scss" rel="stylesheet" />
+
+		<!-- Custom scroll bar css-->
+		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" media="screen" />
+
+		<!-- P-scroll bar css-->
+		<link href="assets/plugins/pscrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <title>Web Sitesi Üst Menü</title>
+
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+			<div class="right-corner">
+				<button class="login-button">Giriş Yap</button>
+				<button class="signup-button">Üye Ol</button>
+				<button class="post-ad-button">Ücretsiz İlan Ver</button>
+			</div>
+        </nav>
+    </header>
+    <main>
+        <!-- Sayfa içeriği burada yer alacak -->
+    </main>
+    <section>
+        <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2" data-bs-image-src="assets/images/banners/banner1.png" data-bs-image-src="banner1.png">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white mb-7">
+                        <h1 class="mb-1"><b>Emlaklazım</b>'da<br>her hayal için bir <b>ilan</b> mutlaka vardır!</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
+                        <div class="search-background bg-transparent">
+                            <div class="form row no-gutters ">
+                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0">
+                                    <input type="text" class="form-control input-lg br-tr-md-0 br-br-md-0" id="text4" placeholder="Gayrimenkulünüzü Bulun">
+                                </div>
+                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0">
+                                    <input type="text" class="form-control input-lg br-md-0" id="text5" placeholder="Konum Girin">
+                                        <span><i class="fa fa-map-marker location-gps me-1"></i> </span>
+                                </div>
+                                <div class="form-group  col-xl-2 col-lg-3 col-md-12 mb-0">
+                                    <input class="form-control fc-datepicker input-lg br-md-0" placeholder="Başlangıç Tarihi" type="text">
+                                        <span><i class="fa fa-calendar location-gps me-1"></i> </span>
+                                </div>
+                                <div class="form-group  col-xl-2 col-lg-3 col-md-12 mb-0">
+                                    <input class="form-control fc-datepicker input-lg br-md-0" placeholder="Bitiş Tarihi" type="text">
+                                        <span><i class="fa fa-calendar location-gps me-1"></i> </span>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                    <a href="javascript:void(0);" class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0">Burada Ara</a>
+                                </div>
+								<div class="icon-row text-center mt-3">
+									<div class="icon">
+										<img src="key.png" alt="Resim 1" width="75" height="75"> 
+										<div class="text">Satılık</div>
+									</div>
+									<div class="icon">
+										<img src="satılık.png" alt="Resim 2" width="75" height="75">
+										<div class="text">Kiralık</div>
+									</div>
+									<div class="icon">
+										<img src="ev.png" alt="Resim 3" width="75" height="75">
+										<div class="text">Projeler</div>
+									</div>
+									<div class="icon">
+										<img src="ofis.png" alt="Resim 4" width="75" height="75">
+										<div class="text">Emlak Ofisleri</div>
+									</div>								
+								</div>
+                            </div>
+                        </div>						
+                        </div>
+                    </div>					
+                </div>				
+            </div><!-- /header-text -->
+			<div class="search-button-container">
+				<button class="search-button">Haritada Ara</button>
+			</div>
+        </div>
+    </section>
+	
+     <!--Categories-->
+	 <section class="sptb bg-white">
+		<div class="container">
+			<div style="border: transparent; padding: 10px; border-radius: 30px; background-color: #f3eded;">
+				<button style="border: 1px ; padding: 10px; border-radius: 25px; background-color:  #78b829; font-size: 16px; color:#fff; margin-right: 10px;">
+					En Çok Arananlar <i style="margin-left: 10px;"></i>
+				</button>
+				<span style="margin-right: 40px;"></span>
+				<button style="border: 2px solid; border-color: transparent; border-radius: 25px; background-color: #fff; font-size: 16px; margin-right: 10px;">
+					Satılık Daire İlanları <i class="fa fa-search" style="margin-left: 10px;"></i>
+				</button>
+				<span style="margin-right: 40px;"></span>
+				<button style="border: 2px solid;border-color: transparent; border-radius: 25px; background-color: #fff; font-size: 16px; margin-right: 10px;">
+					Sahibinden Satılık <i class="fa fa-search" style="margin-left: 10px;"></i>
+				</button>
+				<span style="margin-right: 40px;"></span>
+				<button style="border: 2px solid;border-color: transparent; border-radius: 25px; background-color: #fff; font-size: 16px; margin-right: 10px;">
+					Sahibinden Kiralık <i class="fa fa-search" style="margin-left: 10px;"></i>
+				</button>
+				<span style="margin-right: 40px;"></span>
+				<button style="border: 2px solid;border-color: transparent; border-radius: 25px; background-color: #fff; font-size: 16px;">
+					Satılık Arsa İlanları <i class="fa fa-search" style="margin-left: 10px;"></i>
+				</button>
+			</div>
+				<br>
+			
+		<!--Latest Ads-->
+		<section class="sptb bg-white">
+			<div class="container">
+				<div class="section-title text-left">
+					<h2 style="display: inline-block;"><b>Öne Çıkanlar</b></h2>
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm Öne Çıkan İlanlar</button> 
+					<br>
+					<p class="text-left">Öne Çıkan İnceleyebilirsiniz</p>
+				
+				</div>
+				<div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
+					<div class="item">
+						<div class="card mb-0">
+							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
+							<div class="item-card2-img">
+								<a href="col-left.html"></a>
+								<img src="ev5.jpg" alt="img" class="cover-image">
+								<div class="tag-text">
+									<span class="bg-danger tag-option">Satılık </span>
+									<span class="bg-pink tag-option">Open</span>
+								</div>
+							</div>
+							<div class="item-card2-icons">
+								<a href="col-left.html" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
+								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">Deluxe Houses</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
+										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 Sqft</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 3 Beds</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 2 Bath</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Car</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="ev5.jpg" alt="image" class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal my-auto">Wendy Peake<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+									</div>
+									<div class="my-auto footerimg-r ms-auto">
+										<small class="text-muted">1 day ago</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0">
+							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
+							<div class="item-card2-img">
+								<a href="col-left.html"></a>
+								<img src="ev1.jpg" alt="img" class="cover-image">
+								<div class="tag-text"><span class="bg-danger tag-option">Kiralık </span></div>
+							</div>
+							<div class="item-card2-icons">
+								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
+								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">Çiftlik Evi</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Tuzla , İstanbul </p>
+										<h5 class="font-weight-bold mb-3">32,890 ₺ <span class="fs-12  font-weight-normal">Her Ay</span></h5>
+									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 250 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 2 Yatak Odası</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 3 Banyo</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Garaj</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="assets/images/faces/female/12.jpg" alt="image" class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal my-auto">Mehmet Taş<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+									</div>
+									<div class="my-auto footerimg-r ms-auto">
+										<small class="text-muted">55 dakika önce</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0">
+							<div class="item-card2-img">
+								<a href="col-left.html"></a>
+								<img src="ev7.jpg" alt="img" class="cover-image">
+								<div class="tag-text">
+									<span class="bg-danger tag-option">For Rent </span>
+									<span class="bg-pink tag-option">Hot</span>
+								</div>
+							</div>
+							<div class="item-card2-icons">
+								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
+								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">Office Rooms</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
+										<h5 class="font-weight-bold mb-3">$25,784 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 Sqft</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 8 Beds</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 4 Bath</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 4 Car</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="ev2.jpg" alt="image" class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal my-auto">Joan Hunter<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+									</div>
+									<div class="my-auto footerimg-r ms-auto">
+										<small class="text-muted">2 day ago</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0">
+							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
+							<div class="item-card2-img">
+								<a href="col-left.html"></a>
+								<img src="ev2.jpg" alt="img" class="cover-image">
+								<div class="tag-text"><span class="bg-danger tag-option">For Sale </span></div>
+							</div>
+							<div class="item-card2-icons">
+								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
+								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">Apartments</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
+										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 700 Sqft</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 20 Beds</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 10 Bath</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 10 Car</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="ev3.jpg" alt="image" class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal my-auto">Elizabeth<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+									</div>
+									<div class="my-auto footerimg-r ms-auto">
+										<small class="text-muted">50 mins ago</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item sold-out">
+						<div class="ribbon sold-ribbon ribbon-top-left text-danger"><span class="bg-danger">Sold Out</span></div>
+						<div class="card mb-0">
+							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
+							<div class="item-card2-img">
+								<a href="col-left.html"></a>
+								<img src="ev3.jpg" alt="img" class="cover-image">
+								<div class="tag-text">
+									<span class="bg-danger tag-option">For Sale </span>
+									<span class="bg-pink tag-option">New</span>
+								</div>
+							</div>
+							<div class="item-card2-icons">
+								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
+								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">Duplex House</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
+										<h5 class="font-weight-bold mb-3">$23,789 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 300 Sqft</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 4 Beds</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 3 Bath</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Car</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="ev4.jpg" alt="image" class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal my-auto">Boris Nash<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+									</div>
+									<div class="my-auto footerimg-r ms-auto">
+										<small class="text-muted">12 mins ago</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Latest Ads-->
+
+		<!--Blogs-->
+		<section class="sptb bg-white">
+			<div class="container">
+				<div class="section-title text-left">
+					<h2 style="display: inline-block;"><b>Türkiye'den İlanlar</b></h2>
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm İlanları İncele</button> 
+					<br>
+					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
+
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-lg-3 col-md-3">
+						<div class="item-card overflow-hidden"style="border-radius: 20%; height: 300px;">
+							<div class="item-card-desc">
+								<div class="card text-center overflow-hidden">
+									<div class="card-img" style="border-radius:50%;">
+										<img src="istanbul.jpeg"  alt="img" style="border-radius: 20%; height: 300px;">
+									</div>
+									
+									<div class="item-card-text">
+										<h4 class="mb-0">44,327<span><i class="fa fa-map-marker me-1 text-primary"></i>İSTANBUL</span></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-lg-3 col-md-3">
+						<div class="item-card overflow-hidden"style="border-radius: 20%; height: 300px;">
+							
+							
+							<div class="item-card-desc">
+								<div class="card text-center ">
+									<div class="card-img"style="border-radius:50%;">
+										<img src="ankara.jpg" alt="img" style="border-radius: 20%; height: 300px;">
+
+									</div>
+									
+									<div class="item-card-text">
+										<h4 class="mb-0">52,145<span><i class="fa fa-map-marker me-1 text-primary"></i>ANKARA</span></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-lg-3 col-md-3">
+						<div class="item-card overflow-hidden"style="border-radius: 20%; height: 300px;">
+							<div class="item-card-desc">
+								<div class="card text-center overflow-hidden" >
+									<div class="card-img" style="border-radius:50%;">
+										<img src="erzurum.jpg" alt="img" style="border-radius: 20%; height: 300px;">
+									</div>
+									
+									<div class="item-card-text">
+										<h4 class="mb-0">63,263<span><i class="fa fa-map-marker text-primary me-1"></i>ERZURUM</span></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-lg-3 col-md-3" >
+						<div class="item-card overflow-hidden" style="border-radius: 20%; height: 300px;">
+							<div class="item-card-desc"  >
+								<div class="card text-center overflow-hidden" style="background-color: transparent;">
+									<div class="card-img" style="border-radius:50%;">
+										<img src="antalya.jpg" alt="img" style="border-radius: 20%; height: 300px;">
+									</div>
+									<div class="item-card-text">
+										<h4 class="mb-0">52,145<span><i class="fa fa-map-marker me-1 text-primary"></i>ANTALYA</span></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+					</div>
+				</div>
+			</div>
+			<br> 
+			<div class="item">
+				<div class="card mb-0" >
+					<div class="item7-card-img"  style="width: auto; height: auto;">
+						<img src="reklam.png" style="width: auto; height: auto;">
+		</div>
+	</div>
+</div>
+
+		</section>
+		<!--Blogs-->
+		
+		<!-- News -->
+		<section class="sptb bg-white">
+			<div class="container">
+			
+				<div class="section-title text-left">
+					<h2 style="display: inline-block;"><b>Bilgiye Dair İçerikler</b></h2>
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm Emlak Haberleri</button> 
+					<br>
+					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
+
+				</div>
+				<div id="defaultCarousel" class="owl-carousel Card-owlcarousel owl-carousel-icons">
+					
+					<div class="item">
+						<div class="card mb-0" style="border-radius:10%;">
+							<div class="item7-card-img"  style="width: auto; height: auto;">
+								<a href="blog-details.html"></a>
+								<img src="dublexev.png" alt="img" class="cover-image" style="border-radius:10% ;" >
+								
+							</div>
+							<div class="card-body p-4">
+								<div class="item7-card-desc d-flex mb-2">
+									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>10 Eylül 2023</a>
+									
+								</div>
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">Dublex Ev Satın Alırken Neler..</h4></a>
+								<p>4+1 dubleks daire sadece 1 milyon TL! Teraslı, balkonlu, ebeveyn banyolu, 150 m2 lüks konut! Vakıfbank duyurdu! 120 ay vadeyle ev sahibi olun</p>
+								<div class="d-flex align-items-center justify-content-between">
+								<div >
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0"style="border-radius:10%;" >
+							<div class="item7-card-img" style="width: auto; height:auto;">
+								<a href="blog-details.html"></a>
+								<img src="gayrimenkul.png" alt="img" class="cover-image" style="border-radius:10%;">
+								
+							</div>
+							<div class="card-body p-4">
+								<div class="item7-card-desc d-flex mb-2">
+									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>8 Eylül 2023</a>
+									
+								</div>
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">2023 Eylül Ayı Gayrimenkul</h4></a>
+								<p>Konutlar için uygulanan kira zam sınırlaması işyerleri için geçerli değil. İşyerleri için ise kira zammı normalde 12 aylık enflasyon verilerine göre belli oluyor. Eylül ayında sözleşmelerini yenileyecekler için artış şu şekilde hesaplanacaktır…</p>
+								<div class="d-flex align-items-center justify-content-between">
+									
+									<div >
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0" style="border-radius:10%;">
+							<div class="item7-card-img" style="width: 100%; height: 20%;">
+								<a href="blog-details.html"></a>
+								<img src="kiradava.png" alt="img" class="cover-image" style="border-radius:10%;">
+							</div>
+							<div class="card-body p-4">
+								<div class="item7-card-desc d-flex mb-2">
+									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>9 Eylül 2023</a>
+									
+								</div>
+								<a href="blog-details.html" class="text-dark"><h4 class="font-weight-semibold">Ev Sahipleri ve Kiracılar</h4></a>
+								<p>Gayrimenkul ve kira bedellerindeki artışlar, ev sahibi ile kiracı arasında yaşanan uyuşmazlıklar, komşuluk hukukundan kaynaklı anlaşmazlıklar...Tüm bu davalarda çözüm için ilk adres, 1 Eylül'den itibaren ara bulucular devrede. </p>
+								<div class="d-flex align-items-center justify-content-between">
+									
+									<div >
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+									</div>
+							
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+    <div class="card mb-0" style="border-radius: 10%;">
+        <div class="item7-card-img" style="width: 100%; height: 20%; border-radius: 10%;">
+            <a href="blog-details.html"></a>
+            <img src="emlaksektörü.png" alt="img" class="cover-image" style="border-radius: 10%;">
+        </div>
+        <div class="card-body p-4">
+            <div class="item7-card-desc d-flex mb-2">
+                <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>26 Temmuz 2023</a>
+            </div>
+            <a href="blog-details.html" class="text-dark"><h4 class="font-weight-semibold">Emlak Sektöründe...</h4></a>
+            <p>Tüm Girişimci Emlak Müşavirleri Derneği (TÜGEM) Bolu İl Temsilcisi İlyas Özçelik, emlak sektöründe önemli bir değişikliği açıkladı. Özçelik, emlak ilanlarına yetki belgesi olmayan ve mülk sahibi olmayan emlak ofislerinin erişiminin yasaklandığını duyurdu.</p>
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- "Devamını Oku" butonunu yeni bir div içine taşıdık -->
+                <div>
+                    <button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+					
+				</div>
+			</div> 
+			
+		</section>
+		<!--News -->
+
+		<!--Footer Section-->
+		<section class="main-footer">
+
+			<footer class="white-dark text-black" >
+				<div class="footer-main" >
+					<div class="container">
+						
+						<div class="row" >
+                            <hr> 
+							<div class="col-lg-3 col-md-12">
+                        		<h6>EMLAK LAZIM </h6>
+								
+                                    <a href="javascript:;"style="color: black";>Hakkımızda</a text-black></li> <br/>
+                                	<a href="javascript:;"style="color: black";>Reklam</a></li><br/>
+									<a href="javascript:;"style="color: black">Kurumsal Üyelik</a></li><br/>
+									<a href="javascript:;"style="color: black">Emlak Haber</a></li><br/>
+									<a href="javascript:;"style="color: black">Site Haritası</a></li><br/>
+									<a href="javascript:;"style="color: black">Bize Ulaşın</a></li><br/> 
+                                 
+                                </div>
+                                <div class="col-lg-2 col-sm-6"; >
+								<h6>Hakkımızda</h6>
+						            <ul class="list-unstyled mb-0"> 
+                                    <a href="javascript:;"style="color: black">Yasal Uyarı</a></li> <br/>
+                                	<a href="javascript:;"style="color: black">Kullanım Koşulları</a></li><br/>
+									<a href="javascript:;"style="color: black">Aydınlatma Metni</a></li><br/>
+									<a href="javascript:;"style="color: black">Çerez Politikası</a></li><br/>
+									<a href="javascript:;"style="color: black">Üyelik Sözleşmesi</a></li><br/>
+									<a href="javascript:;"style="color: black">İlan Yayınlama Kuralları</a></li><br/>
+								</ul>
+							</div>
+
+                            <div class="col-lg-2 col-sm-6">
+								<h6>Diğer</h6>
+								 
+								<ul class="list-unstyled mb-0" text-color="black"> 
+                                    <a href="javascript:;"style="color: black">İlan Yayınlama Kuralları</a></li> <br/>
+                                	<a href="javascript:;"style="color: black">Kullanım Koşulları</a></li><br/>
+									<a href="javascript:;"style="color: black">Üyelik Sözleşmesi ve Gizlilik Politikası</a></li><br/>
+									<a href="javascript:;"style="color: black">Çerez Politikası</a></li><br/>
+									<a href="javascript:;"style="color: black">Kişisel Verilerin Korunması Hakkında</a></li><br/>
+									<a href="javascript:;"style="color: black">Açık Rıza Metni</a></li><br/>
+								</ul>
+							</div>
+
+							<div class="col-lg-3 col-sm-6">
+								<h6>İletişim</h6>
+								
+								<ul class="list-unstyled mb-0">
+									<li>
+										<a href="javascript:void(0);" style="color: black" ><i class="fa fa-home me-3 text-black"></i> Adres</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);"style="color: black"><i class="fa fa-envelope me-3 text-black"></i> Mail</a></li>
+									<li>
+										<a href="javascript:void(0);"style="color: black"><i class="fa fa-phone me-3 text-black"></i> Telefon</a>
+									</li>
+									 <li>
+										<a href="javascript:void(0);"style="color: black"><i class="fa fa-print me-3 text-black"></i> Faks</a>
+									</li>
+								</ul>
+								<ul class="list-unstyled list-inline mt-3">
+									<li class="list-inline-item">
+									  <a class="btn-floating btn-sm rgba-black-slight mx-1 waves-effect waves-light">
+										<i class="fa fa-facebook bg-facebook"></i>
+									  </a>
+									</li>
+									<li class="list-inline-item">
+									  <a class="btn-floating btn-sm rgba-black-slight mx-1 waves-effect waves-light">
+										<i class="fa fa-twitter bg-info"></i>
+									  </a>
+									</li>
+									<li class="list-inline-item">
+									  <a class="btn-floating btn-sm rgba-black-slight mx-1 waves-effect waves-light">
+										<i class="fa fa-google-plus bg-danger"></i>
+									  </a>
+									</li>
+									<li class="list-inline-item">
+									  <a class="btn-floating btn-sm rgba-black-slight mx-1 waves-effect waves-light">
+										<i class="fa fa-linkedin bg-linkedin"></i>
+									  </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bg-green-dark text-black p-0">
+					<div class="container">
+						<div class="row d-flex">
+							<div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
+								Copyright © 2023 <a href="javascript:void(0);" text-color=" white"; class="fs-14 text-primary" >Emlak Lazım</a></a> Tüm hakları saklıdır.
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</section>
+		<!--Footer Section-->  
+<!-- Back to top -->
+<a href="#top" id="back-to-top" ><i class="fa fa-rocket"></i></a>
+
+<!-- JQuery js-->
+<script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap js -->
+<script src="assets/plugins/bootstrap-5/popper.min.js"></script>
+<script src="assets/plugins/bootstrap-5/js/bootstrap.min.js"></script>
+
+<!--JQuery RealEstaterkline Js-->
+<script src="assets/js/vendors/jquery.sparkline.min.js"></script>
+
+<!-- Circle Progress Js-->
+<script src="assets/js/vendors/circle-progress.min.js"></script>
+
+<!-- Star Rating Js-->
+<script src="assets/plugins/rating/jquery.rating-stars.js"></script>
+
+<!--Counters -->
+<script src="assets/plugins/counters/counterup.min.js"></script>
+<script src="assets/plugins/counters/waypoints.min.js"></script>
+<script src="assets/plugins/counters/numeric-counter.js"></script>
+
+<!--Owl Carousel js -->
+<script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
+
+<!--Horizontal Menu-->
+<script src="assets/plugins/horizontal-menu/horizontal.js"></script>
+
+<!--JQuery TouchSwipe js-->
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+
+<!--Select2 js -->
+<script src="assets/plugins/select2/select2.full.min.js"></script>
+<script src="assets/js/select2.js"></script>
+
+<!-- sticky Js-->
+<script src="assets/js/sticky.js"></script>
+
+<!-- Cookie js -->
+<script src="assets/plugins/cookie/jquery.ihavecookies.js"></script>
+<script src="assets/plugins/cookie/cookie.js"></script>
+
+<!-- Datepicker js -->
+<script src="assets/plugins/date-picker/spectrum.js"></script>
+<script src="assets/plugins/date-picker/jquery-ui.js"></script>
+<script src="assets/plugins/date-picker/datepicker.js"></script>
+
+<!-- P-scroll bar Js-->
+<script src="assets/plugins/pscrollbar/perfect-scrollbar.js"></script>
+
+
+<!--Showmore Js-->
+<script src="assets/js/jquery.showmore.js"></script>
+<script src="assets/js/showmore.js"></script>
+
+<!-- Swipe Js-->
+<script src="assets/js/swipe.js"></script>
+
+<!-- Scripts Js-->
+<script src="assets/js/owl-carousel.js"></script>
+
+<!-- themecolor Js-->
+<script src="assets/js/themeColors.js"></script>
+
+<!-- Custom Js-->
+<script src="assets/js/custom.js"></script>
+
+<!-- Custom-switcher Js-->
+<script src="assets/js/custom-switcher.js"></script>
+
+
+
+
+</body>
+</html>

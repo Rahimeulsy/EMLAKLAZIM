@@ -93,7 +93,38 @@
             color: hsl(0, 0%, 95%);
         } 
 		
+		.icon-row {
+			display: flex; /* Flexbox kullanarak sıralama */
+			align-items: center; /* Yüksekliği ortala */
+			justify-content: center; /* Yatayda ortala */
+			
+		}
 
+		.icon {
+			position: relative; /* İçeriği yerleştirmek için pozisyonu ayarla */
+			margin-right: 20px; /* Resimler arasında sağda boşluk bırak */
+			margin-left: 5px;
+			text-align: center; /* Metni yatayda ortala */
+        	color: white; /* Metin rengini beyaz yap */
+			border: 2px solid #ffffff; /* Beyaz renkte 2 piksel çerçeve ekler */
+			border-radius: 20px; /* Kenarları ovalleştirir */
+			height: 110px;
+			margin-top: 50px; /* Çerçeveleri 10 piksel aşağı kaydırır */
+			
+		}
+		.icon img {
+			margin-right: 0px; /* Resimler arasındaki boşluğu margin ile ayarlayın */
+			padding: 17px; /* Resimlerin etrafındaki boşluğu padding ile ayarlayın */
+			filter: brightness(0) invert(1);/* Resimlerin rengini beyaz yapar */
+		}
+		.icon .text {
+        position: absolute;
+        bottom: 0px; /* Metin ile resim arasındaki mesafeyi ayarlar */
+        left: 0;
+        width: 100%; /* Metin genişliğini çerçevenin genişliği kadar yap */
+        padding: 5px;
+        margin: 0;	
+    }
         .footer-main hr::before,
         .footer-main hr::after {
             content: "";
@@ -102,7 +133,6 @@
             background:#78b829;
             margin: 0 10px; /* Çizgilerin sağ ve solunda boşluk ekleyebilirsiniz */
         }
-
         .footer-main hr {
             display: flex;
             align-items: center;
@@ -204,6 +234,23 @@
                                 <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
                                     <a href="javascript:void(0);" class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0">Burada Ara</a>
                                 </div>
+								<div class="icon-row text-center mt-3">
+									<div class="icon">
+										<img src="key.png" alt="Resim 1" width="75" height="75"> 
+										<div class="text">Satılık</div>
+									</div>
+									<div class="icon">
+										<img src="satılık.png" alt="Resim 2" width="75" height="75">
+										<div class="text">Kiralık</div>
+									</div>
+									<div class="icon">
+										<img src="ev.png" alt="Resim 3" width="75" height="75">
+										<div class="text">Projeler</div>
+									</div>
+									<div class="icon">
+										<img src="ofis.png" alt="Resim 4" width="75" height="75">
+										<div class="text">Emlak <br> Ofisleri</div>
+									</div>
 								
 								</div>
 								
