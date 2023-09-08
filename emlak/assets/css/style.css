@@ -9,12 +9,12 @@
 /*black variables*/
 :root {
   /*--primary-bg-color: #61d12d;*/
-  --primary-bg-hover: #61d12d;
-  --primary-bg-border: #61d12d;
+  --primary-bg-hover: #78b829;
+  --primary-bg-border: #78b829;
   --primary-bg-transparentcolor:rgba(74, 61, 184, 0.16);
   --primary-bg-background:#f7f7fb;
-  --secondary-color: #78fc3b;
-  --secondary-hover: #78fc3b;
+  --secondary-color: #78b829;
+  --secondary-hover: #78b829;
   --secondary-transparent:rgba(156, 49, 223, 0.16);
   --secondary-shadow: rgba(156, 49, 223, 0.1);
   --primary-09:rgba(74, 61, 184,0.86);
