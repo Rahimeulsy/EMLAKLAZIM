@@ -1,18 +1,39 @@
-/* Haritada Ara butonu stilini tanımlayın */
-        .search-button {
-            background-color: #00ff37; /* Buton arkaplan rengi */
-            color: #fff; /* Buton metin rengi */
-            border: none; /* Buton kenarlığı yok */
-            padding: 10px 20px; /* Buton iç boşluğu */
-            cursor: pointer; /* Üzerine gelince fareyi işaretçiye dönüştür */
-            border-radius: 15px; /* Kenarları kıvrık yapma */
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-        /* Haritada Ara butonunu banner içinde konumlandırma */
-        .search-button-container {
-            position: absolute;
-            bottom: 20px; /* Alttan 20 piksel mesafe */
-        }
-        <div class="search-button-container">
-            <button class="search-button">Haritada Ara</button>
-        </div>
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+    <div class="search-bar">
+        <input type="text" placeholder="Arama yap...">
+        <button type="submit">Ara</button>
+    </div>
+</body>
+</html>

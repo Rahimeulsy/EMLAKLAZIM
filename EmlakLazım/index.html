@@ -7,7 +7,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins' sans-serif;
         }
 
         header {
@@ -87,11 +87,53 @@
             border-radius: 100px;
             transition: background-color 0.3s, color 0.3s;
         }
+		.search-bar {
+    	display: flex;
+   	 	align-items: center;
+		background-color: #fff;
+    	border: 1px solid #ccc;
+    	border-radius: 50px;
+    	overflow: hidden;
+		padding: 5px;
+		width: 600px;
+		margin: 0 auto;
+		}
+
+		.search-bar input[type="text"] {
+    	flex: 1;
+		border-radius: 20%;
+    	padding: 10px 5px;
+    	border: none;
+    	outline: none;
+		width: 10px;
+		font-family: 'Poppins' sans-serif;
+		
+		}
+
+		.search-button {
+			background-color: #000000;
+			color: #fff;
+			border:none;
+			border-radius: 20%;
+			padding: 10px 10px;
+			cursor: pointer;
+		}
 
         .buttons button:hover {
+			border-radius: 20%;
             background-color: #333;
             color: hsl(0, 0%, 95%);
         } 
+		.custom-button {
+		background-color: #000000;
+		color: #ffffff;
+		border-radius: 30%;
+		border: none;
+		padding: 10px 40px; /* İhtiyaca göre boyutları ayarlayabilirsiniz */
+		cursor: pointer;
+		font-family: 'Poppins' sans-serif;
+		}
+
 		.icon-row {
 			display: flex; /* Flexbox kullanarak sıralama */
 			align-items: center; /* Yüksekliği ortala */
@@ -145,8 +187,20 @@
 			left: 50%; /* Sol kenarı ortala */
    			transform: translateX(-50%); /* Yatayda ortala */
         }
-		
-      
+		.icon a .text {
+    	color: #ffffff; /* Yazı rengi */
+   		transition: color 0.3s; /* Renk değişimini yumuşatır */
+		}
+
+		/* Üzerine gelindiğinde yazı rengi değişecek */
+		.icon a:hover .text {
+    	color: #ffffffd7; /* Üzerine gelindiğindeki yazı rengi */
+		}
+		.item-card2-img img {
+    	width: 100%; /* Resimleri yüzde olarak genişlet */
+   		height: auto; /* Yüksekliği otomatik olarak ayarla */
+		}
+
         .footer-main hr::before,
         .footer-main hr::after {
             content: "";
@@ -154,8 +208,21 @@
             height: 13px; /* Kalınlığı buradan ayarlayabilirsiniz */
             background:#78b829;
             margin: 0 10px; /* Çizgilerin sağ ve solunda boşluk ekleyebilirsiniz */
+			width: 100%; /* Çizgileri sayfa genişliğine eşitler */
         }
 
+		.footer-main hr::before {
+   	 	margin-right: 10px; /* İlk çizginin sağ tarafında daha fazla boşluk bırakmak için */
+    	border-right: 5px solid transparent; /* Sağ ucu kesik yapmak için */
+		right: 0;
+    	transform: skewX(30deg); /* Sağdan sola çapraz kesik efekti için */
+		}
+		.footer-main hr::after {
+    	margin-left: 10px; /* İkinci çizginin sol tarafında daha fazla boşluk bırakmak için */
+    	border-left: 5px solid transparent; /* Sol ucu kesik yapmak için */
+		right: 0;
+      	transform: skewX(30deg); /* Sağdan sola çapraz kesik efekti için */
+		}
         .footer-main hr {
             display: flex;
             align-items: center;
@@ -177,7 +244,9 @@
         .main-footer .footer-main h6 {
             margin-top: 0;
         }
-		
+		.telif {
+		color: white; /* Yazı rengini beyaz yap */
+		}
 
 		
     </style>
@@ -236,50 +305,36 @@
                     <div class="text-center text-white mb-7">
                         <h1 class="mb-1"><b>Emlaklazım</b>'da<br>her hayal için bir <b>ilan</b> mutlaka vardır!</h1>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
-                        <div class="search-background bg-transparent">
-                            <div class="form row no-gutters ">
-                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0">
-                                    <input type="text" class="form-control input-lg br-tr-md-0 br-br-md-0" id="text4" placeholder="Gayrimenkulünüzü Bulun">
-                                </div>
-                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0">
-                                    <input type="text" class="form-control input-lg br-md-0" id="text5" placeholder="Konum Girin">
-                                        <span><i class="fa fa-map-marker location-gps me-1"></i> </span>
-                                </div>
-                                <div class="form-group  col-xl-2 col-lg-3 col-md-12 mb-0">
-                                    <input class="form-control fc-datepicker input-lg br-md-0" placeholder="Başlangıç Tarihi" type="text">
-                                        <span><i class="fa fa-calendar location-gps me-1"></i> </span>
-                                </div>
-                                <div class="form-group  col-xl-2 col-lg-3 col-md-12 mb-0">
-                                    <input class="form-control fc-datepicker input-lg br-md-0" placeholder="Bitiş Tarihi" type="text">
-                                        <span><i class="fa fa-calendar location-gps me-1"></i> </span>
-                                </div>
-                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-                                    <a href="javascript:void(0);" class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0">Burada Ara</a>
-                                </div>
-								<div class="icon-row text-center mt-3">
-									<div class="icon">
-										<img src="key.png" alt="Resim 1" width="75" height="75"> 
-										<div class="text">Satılık</div>
-									</div>
-									<div class="icon">
-										<img src="satılık.png" alt="Resim 2" width="75" height="75">
-										<div class="text">Kiralık</div>
-									</div>
-									<div class="icon">
-										<img src="ev.png" alt="Resim 3" width="75" height="75">
-										<div class="text">Projeler</div>
-									</div>
-									<div class="icon">
-										<img src="ofis.png" alt="Resim 4" width="75" height="75">
-										<div class="text">Emlak Ofisleri</div>
-									</div>								
-								</div>
-                            </div>
-                        </div>						
-                        </div>
-                    </div>					
+                    <div class="search-bar">
+						<input type="text" placeholder="  Kelime,ilan no ve/veya mağaza adı ile ara">
+						<button type="submit" class="custom-button">Ara</button>
+					</div>
+					<div class="icon-row text-center mt-3">
+						<div class="icon">
+							<a href="link4.html">
+							<img src="key.png" alt="Resim 1" width="75" height="75"/>
+							<div class="text">Satılık</div>
+							</a>
+						</div>
+						<div class="icon">
+							<a href="link4.html">
+							<img src="satılık.png" alt="Resim 2" width="75" height="75">
+							<div class="text">Kiralık</div>
+						</a>
+						</div>
+						<div class="icon">
+							<a href="link4.html">
+							<img src="ev.png" alt="Resim 3" width="75" height="75">
+							<div class="text">Projeler</div>
+							</a>
+						</div>
+						<div class="icon">
+							<a href="link4.html">
+							<img src="ofis.png" alt="Resim 4" width="75" height="75">
+							<div class="text">Emlak Ofisleri</div>
+						</a>
+						</div>								
+					</div>			
                 </div>				
             </div><!-- /header-text -->
 			<div class="search-button-container">
@@ -292,7 +347,7 @@
 	 <section class="sptb bg-white">
 		<div class="container">
 			<div style="border: transparent; padding: 10px; border-radius: 30px; background-color: #f3eded;">
-				<button style="border: 1px ; padding: 10px; border-radius: 25px; background-color:  #78b829; font-size: 16px; color:#fff; margin-right: 10px;">
+				<button style="border: 1px ; padding: 13px; border-radius: 25px; background-color:  #78b829; font-size: 16px; color:#fff; margin-right: 10px;">
 					En Çok Arananlar <i style="margin-left: 10px;"></i>
 				</button>
 				<span style="margin-right: 40px;"></span>
@@ -319,222 +374,129 @@
 			<div class="container">
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Öne Çıkanlar</b></h2>
-					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm Öne Çıkan İlanlar</button> 
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color:#63707b; color: white; width: 200px; height: 40px; vertical-align: top; float: right;">Tüm Öne Çıkan İlanlar</button> 
 					<br>
 					<p class="text-left">Öne Çıkan İnceleyebilirsiniz</p>
-				
 				</div>
 				<div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
 					<div class="item">
-						<div class="card mb-0">
-							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
-							<div class="item-card2-img">
+						<div class="card mb-0" style="border-radius: 5%;">
+							<div class="item-card2-img" style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev5.jpg" alt="img" class="cover-image">
-								<div class="tag-text">
-									<span class="bg-danger tag-option">Satılık </span>
-									<span class="bg-pink tag-option">Open</span>
-								</div>
-							</div>
-							<div class="item-card2-icons">
-								<a href="col-left.html" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
-								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+								<img src="ev2.jpg" alt="img" class="cover-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
-										<a href="col-left.html" class="text-dark"><h4 class="">Deluxe Houses</h4></a>
-										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
-										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+										<a href="col-left.html" class="text-dark"><h4 class="">240 m² 4+1 Satılık Daire </h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Mamak , Ankara</p>
+										<h5 class="font-weight-bold mb-3">4,090.000 ₺ <span class="fs-12  font-weight-normal">26 Temmuz</span></h5>
 									</div>
 									<ul class="item-card2-list">
-										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 Sqft</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 3 Beds</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 2 Bath</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Car</a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 500 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 3+1 </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 2 Banyo </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Garaj </a></li>
 									</ul>
 								</div>
-							</div>
-							<div class="card-footer">
-								<div class="footerimg d-flex mt-0 mb-0">
-									<div class="d-flex footerimg-l mb-0">
-										<img src="ev5.jpg" alt="image" class="avatar brround  me-2">
-										<h5 class="time-title text-muted p-0 leading-normal my-auto">Wendy Peake<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
-									</div>
-									<div class="my-auto footerimg-r ms-auto">
-										<small class="text-muted">1 day ago</small>
-									</div>
-								</div>
+								
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="card mb-0">
-							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
-							<div class="item-card2-img">
+						<div class="card mb-0"style="border-radius: 5%;">
+							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev1.jpg" alt="img" class="cover-image">
-								<div class="tag-text"><span class="bg-danger tag-option">Kiralık </span></div>
-							</div>
-							<div class="item-card2-icons">
-								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
-								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+								<img src="ev2.jpg" alt="img" class="cover-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
 										<a href="col-left.html" class="text-dark"><h4 class="">Çiftlik Evi</h4></a>
 										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Tuzla , İstanbul </p>
-										<h5 class="font-weight-bold mb-3">32,890 ₺ <span class="fs-12  font-weight-normal">Her Ay</span></h5>
+										<h5 class="font-weight-bold mb-3">32,890 ₺ <span class="fs-12  font-weight-normal">16 Ağustos</span></h5>
 									</div>
 									<ul class="item-card2-list">
-										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 250 m²</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 2 Yatak Odası</a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 500 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 5+1 </a></li>
 										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 3 Banyo</a></li>
 										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Garaj</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="card-footer">
-								<div class="footerimg d-flex mt-0 mb-0">
-									<div class="d-flex footerimg-l mb-0">
-										<img src="assets/images/faces/female/12.jpg" alt="image" class="avatar brround  me-2">
-										<h5 class="time-title text-muted p-0 leading-normal my-auto">Mehmet Taş<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
-									</div>
-									<div class="my-auto footerimg-r ms-auto">
-										<small class="text-muted">55 dakika önce</small>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="card mb-0">
-							<div class="item-card2-img">
-								<a href="col-left.html"></a>
-								<img src="ev7.jpg" alt="img" class="cover-image">
-								<div class="tag-text">
-									<span class="bg-danger tag-option">For Rent </span>
-									<span class="bg-pink tag-option">Hot</span>
-								</div>
-							</div>
-							<div class="item-card2-icons">
-								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
-								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
-							</div>
-							<div class="card-body">
-								<div class="item-card2">
-									<div class="item-card2-text">
-										<a href="col-left.html" class="text-dark"><h4 class="">Office Rooms</h4></a>
-										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
-										<h5 class="font-weight-bold mb-3">$25,784 <span class="fs-12  font-weight-normal">Per Month</span></h5>
-									</div>
-									<ul class="item-card2-list">
-										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 Sqft</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 8 Beds</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 4 Bath</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 4 Car</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-footer">
-								<div class="footerimg d-flex mt-0 mb-0">
-									<div class="d-flex footerimg-l mb-0">
-										<img src="ev2.jpg" alt="image" class="avatar brround  me-2">
-										<h5 class="time-title text-muted p-0 leading-normal my-auto">Joan Hunter<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
-									</div>
-									<div class="my-auto footerimg-r ms-auto">
-										<small class="text-muted">2 day ago</small>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="card mb-0">
-							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
-							<div class="item-card2-img">
+						<div class="card mb-0"style="border-radius: 5%;">
+							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
 								<img src="ev2.jpg" alt="img" class="cover-image">
-								<div class="tag-text"><span class="bg-danger tag-option">For Sale </span></div>
-							</div>
-							<div class="item-card2-icons">
-								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
-								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
-										<a href="col-left.html" class="text-dark"><h4 class="">Apartments</h4></a>
-										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
-										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+										<a href="col-left.html" class="text-dark"><h4 class="">240 m² 3+1 Satılık Daire</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Avcılar , İstanbul </p>
+										<h5 class="font-weight-bold mb-3">$25,784 <span class="fs-12  font-weight-normal">12 Eylül</span></h5>
 									</div>
 									<ul class="item-card2-list">
-										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 700 Sqft</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 20 Beds</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 10 Bath</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 10 Car</a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 3+1 </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 2 Banyo </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Garaj</a></li>
 									</ul>
-								</div>
-							</div>
-							<div class="card-footer">
-								<div class="footerimg d-flex mt-0 mb-0">
-									<div class="d-flex footerimg-l mb-0">
-										<img src="ev3.jpg" alt="image" class="avatar brround  me-2">
-										<h5 class="time-title text-muted p-0 leading-normal my-auto">Elizabeth<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
-									</div>
-									<div class="my-auto footerimg-r ms-auto">
-										<small class="text-muted">50 mins ago</small>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="item sold-out">
-						<div class="ribbon sold-ribbon ribbon-top-left text-danger"><span class="bg-danger">Sold Out</span></div>
-						<div class="card mb-0">
-							<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
-							<div class="item-card2-img">
+					<div class="item">
+						<div class="card mb-0"style="border-radius: 5%;">
+							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev3.jpg" alt="img" class="cover-image">
-								<div class="tag-text">
-									<span class="bg-danger tag-option">For Sale </span>
-									<span class="bg-pink tag-option">New</span>
-								</div>
-							</div>
-							<div class="item-card2-icons">
-								<a href="javascript:void(0);" class="item-card2-icons-l bg-primary"> <i class="fa fa-home"></i></a>
-								<a href="javascript:void(0);" class="item-card2-icons-r bg-secondary"><i class="fa fa fa-heart-o"></i></a>
+								<img src="ev2.jpg" alt="img" class="cover-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
-										<a href="col-left.html" class="text-dark"><h4 class="">Duplex House</h4></a>
-										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Preston Street Wichita , USA </p>
-										<h5 class="font-weight-bold mb-3">$23,789 <span class="fs-12  font-weight-normal">Per Month</span></h5>
+										<a href="col-left.html" class="text-dark"><h4 class="">240 m² 2+1 Satılık Daire</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Kızılay , Ankara </p>
+										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">12 Temmuz</span></h5>
 									</div>
 									<ul class="item-card2-list">
-										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 300 Sqft</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 4 Beds</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 3 Bath</a></li>
-										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Car</a></li>
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 240 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 2+1 </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 1 Banyo </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> Garaj Yok </a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="card-footer">
-								<div class="footerimg d-flex mt-0 mb-0">
-									<div class="d-flex footerimg-l mb-0">
-										<img src="ev4.jpg" alt="image" class="avatar brround  me-2">
-										<h5 class="time-title text-muted p-0 leading-normal my-auto">Boris Nash<i class="si si-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"></i></h5>
+						</div>
+					</div>
+					<div class="item">
+						<div class="card mb-0" style="border-radius: 5%;">
+							<div class="item-card2-img" style="border-radius: 5%;">
+								<a href="col-left.html"></a>
+								<img src="ev2.jpg" alt="img" class="cover-image" >
+							</div>
+							<div class="card-body">
+								<div class="item-card2">
+									<div class="item-card2-text">
+										<a href="col-left.html" class="text-dark"><h4 class="">340 m² 4+1 Satılık Daire</h4></a>
+										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Yakutiye , Erzurum</p>
+										<h5 class="font-weight-bold mb-3">$23,789 <span class="fs-12  font-weight-normal">22 Ağustos </span></h5>
 									</div>
-									<div class="my-auto footerimg-r ms-auto">
-										<small class="text-muted">12 mins ago</small>
-									</div>
+									<ul class="item-card2-list">
+										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 340 m²</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bed text-muted me-1"></i> 4+1</a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-bath text-muted me-1"></i> 2 Banyo </a></li>
+										<li><a href="javascript:void(0);" class="icons"><i class="fa fa-car text-muted me-1"></i> 1 Garaj </a></li>
+									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			
 			</div>
 		</section>
 		<!--Latest Ads-->
@@ -544,7 +506,7 @@
 			<div class="container">
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Türkiye'den İlanlar</b></h2>
-					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm İlanları İncele</button> 
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color:#63707b; color: white; width: 200px; height: 40px;  vertical-align: top; float: right;">Tüm İlanları İncele</button> 
 					<br>
 					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
 
@@ -635,7 +597,7 @@
 			
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Bilgiye Dair İçerikler</b></h2>
-					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px; display: inline-block; vertical-align: top; float: right;">Tüm Emlak Haberleri</button> 
+					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px; vertical-align: top; float: right;">Tüm Emlak Haberleri</button> 
 					<br>
 					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
 
@@ -658,7 +620,7 @@
 								<p>4+1 dubleks daire sadece 1 milyon TL! Teraslı, balkonlu, ebeveyn banyolu, 150 m2 lüks konut! Vakıfbank duyurdu! 120 ay vadeyle ev sahibi olun</p>
 								<div class="d-flex align-items-center justify-content-between">
 								<div >
-										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
 									</div>
 								</div>
 							</div>
@@ -681,7 +643,7 @@
 								<div class="d-flex align-items-center justify-content-between">
 									
 									<div >
-										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
 									</div>
 								</div>
 							</div>
@@ -703,7 +665,7 @@
 								<div class="d-flex align-items-center justify-content-between">
 									
 									<div >
-										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
 									</div>
 							
 								</div>
@@ -725,7 +687,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <!-- "Devamını Oku" butonunu yeni bir div içine taşıdık -->
                 <div>
-                    <button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: gray; color: white; width: 200px; height: 40px;">Devamını oku</button>
+                    <button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
                 </div>
             </div>
         </div>
@@ -830,7 +792,7 @@
 					<div class="container">
 						<div class="row d-flex">
 							<div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-								Copyright © 2023 <a href="javascript:void(0);" text-color=" white"; class="fs-14 text-primary" >Emlak Lazım</a></a> Tüm hakları saklıdır.
+								<p class="telif">Copyright © 2023 Emlak Lazım - Tüm hakları saklıdır.</p>
 							</div>
 						</div>
 					</div>
