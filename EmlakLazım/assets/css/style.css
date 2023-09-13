@@ -74,7 +74,7 @@ body {
   color: #070510;
   text-align: left;
   background-color: var(--primary-bg-background);
-  font-family: "Roboto", sans-serif;
+  font-family: 'Poppins' sans-serif;
 }
 
 [tabindex="-1"]:focus {
@@ -192,7 +192,7 @@ pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
-  font-family: Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: 'Poppins' sans-serif;
 }
 
 pre {
@@ -252,7 +252,7 @@ label {
 button {
   border-radius: 0;
   margin: 0;
-  font-family: inherit;
+  font-family: 'Poppins' sans-serif;
   font-size: inherit;
   line-height: inherit;
 }
@@ -266,7 +266,7 @@ optgroup,
 select,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'Poppins' sans-serif;
   font-size: inherit;
   line-height: inherit;
 }
@@ -561,6 +561,7 @@ mark {
 
 .fs-20 {
   font-size: 20px !important;
+  font-family:'Poppins' sans-serif;
 }
 
 .fs-30 {
@@ -26419,7 +26420,7 @@ footer .border-top {
   content: "\e049";
   margin-right: 5px;
   position: relative;
-  font-family: "typicons" !important;
+  font-family: 'Poppins' sans-serif !important;
   opacity: 0.5;
 }
 
@@ -26982,7 +26983,7 @@ body.fixed-header .header {
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Poppins' sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: antialiased;
   font-smooth: antialiased;
@@ -28180,7 +28181,7 @@ video {
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Poppins' sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: antialiased;
   font-smooth: antialiased;
@@ -29753,7 +29754,7 @@ video {
   left: 0;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 190%;
 }
 .item-card .item-card-desc .item-card-text h4 {
   position: relative;
@@ -50439,6 +50440,7 @@ button.bg-lime:focus, button.bg-lime:hover {
 
 .text-left {
   text-align: left !important;
+  
 }
 
 .text-right {
@@ -50586,7 +50588,8 @@ a.text-light:focus, a.text-light:hover {
 }
 
 .text-muted {
-  color: #a6a3ba !important;
+  color: gray !important;
+  font-family:'Poppins' sans-serif;
 }
 
 .text-black-50 {
@@ -50920,7 +50923,7 @@ a.text-light:focus, a.text-light:hover {
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins' sans-serif;
 }
 
 header {

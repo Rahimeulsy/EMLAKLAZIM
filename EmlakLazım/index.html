@@ -196,29 +196,45 @@
 		.icon a:hover .text {
     	color: #ffffffd7; /* Üzerine gelindiğindeki yazı rengi */
 		}
-		.item-card2-img img {
-    	width: 100%; /* Resimleri yüzde olarak genişlet */
-   		height: auto; /* Yüksekliği otomatik olarak ayarla */
+		.fixed-size-image {
+		width: 200px; /* Sabit genişlik */
+		height: 210px; /* Sabit yükseklik */
+		object-fit: cover; /* Resmin oranlarını koruyarak, belirtilen boyuta sığmasını sağlar */
+		}
+		.fixed-image-container {
+		max-width: 100%; /* Resimlerin container'ın içine sığacak şekilde maksimum genişlik */
+		height: auto; /* Otomatik yükseklik ayarı, oranları korur */
+		overflow: hidden; /* Taşan içerikleri gizler */
 		}
 
+		.fixed-image-container img {
+		width: 400px; /* Sabit genişlik */
+		height: 250px; /* Sabit yükseklik */
+		display: block; /* İnline elementlerden blok elementlere geçiş yapar */
+		margin: 0 auto; /* Resimleri ortalar */
+		object-fit: cover;
+		}
+		
         .footer-main hr::before,
         .footer-main hr::after {
             content: "";
             flex: 1;
             height: 13px; /* Kalınlığı buradan ayarlayabilirsiniz */
             background:#78b829;
-            margin: 0 10px; /* Çizgilerin sağ ve solunda boşluk ekleyebilirsiniz */
+            margin: 0px 10px; /* Çizgilerin sağ ve solunda boşluk ekleyebilirsiniz */
 			width: 100%; /* Çizgileri sayfa genişliğine eşitler */
         }
 
 		.footer-main hr::before {
    	 	margin-right: 10px; /* İlk çizginin sağ tarafında daha fazla boşluk bırakmak için */
-    	border-right: 5px solid transparent; /* Sağ ucu kesik yapmak için */
+		margin-left: -100px;
+    	border-right: 5px; /* Sağ ucu kesik yapmak için */
 		right: 0;
     	transform: skewX(30deg); /* Sağdan sola çapraz kesik efekti için */
 		}
 		.footer-main hr::after {
     	margin-left: 10px; /* İkinci çizginin sol tarafında daha fazla boşluk bırakmak için */
+		margin-right: -100px;
     	border-left: 5px solid transparent; /* Sol ucu kesik yapmak için */
 		right: 0;
       	transform: skewX(30deg); /* Sağdan sola çapraz kesik efekti için */
@@ -341,12 +357,14 @@
 				<button class="search-button">Haritada Ara</button>
 			</div>
         </div>
+		<br>
+		<br>
     </section>
 	
      <!--Categories-->
-	 <section class="sptb bg-white">
+	 <section class="white-dark text-black" style="background-color: #f2f2f2;"></section>
 		<div class="container">
-			<div style="border: transparent; padding: 10px; border-radius: 30px; background-color: #f3eded;">
+			<div style="border: transparent; padding: 10px; border-radius: 30px; background-color: #e6e6e6;">
 				<button style="border: 1px ; padding: 13px; border-radius: 25px; background-color:  #78b829; font-size: 16px; color:#fff; margin-right: 10px;">
 					En Çok Arananlar <i style="margin-left: 10px;"></i>
 				</button>
@@ -368,22 +386,24 @@
 				</button>
 			</div>
 				<br>
+				<br>
+
 			
 		<!--Latest Ads-->
-		<section class="sptb bg-white">
+		<section class="white-dark text-black" style="background-color: #f2f2f2;"></section>
 			<div class="container">
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Öne Çıkanlar</b></h2>
 					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color:#63707b; color: white; width: 200px; height: 40px; vertical-align: top; float: right;">Tüm Öne Çıkan İlanlar</button> 
 					<br>
-					<p class="text-left">Öne Çıkan İnceleyebilirsiniz</p>
+					<p class="text-left" style="color: #63707b;">Öne Çıkan İnceleyebilirsiniz</p>
 				</div>
 				<div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
-					<div class="item">
-						<div class="card mb-0" style="border-radius: 5%;">
+					<div class="item" style="border: solid 2px; padding:10px 10px 10px 10px; border-radius: 5%; border-color: #ffffff;">
+						<div class="card mb-0" style="border-radius: 5%; background-color: #f2f2f2;" >
 							<div class="item-card2-img" style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev2.jpg" alt="img" class="cover-image">
+								<img src="ev1.jpg" alt="img" class="cover-image fixed-size-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
@@ -403,18 +423,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="card mb-0"style="border-radius: 5%;">
+					<div class="item" style="border: solid 2px; padding:10px 10px 10px 10px; border-radius: 5%; border-color: #ffffff;">
+						<div class="card mb-0"style="border-radius: 5%; background-color: #f2f2f2;">
 							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev2.jpg" alt="img" class="cover-image">
+								<img src="ev2.jpg" alt="img" class="cover-image fixed-size-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
 										<a href="col-left.html" class="text-dark"><h4 class="">Çiftlik Evi</h4></a>
 										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Tuzla , İstanbul </p>
-										<h5 class="font-weight-bold mb-3">32,890 ₺ <span class="fs-12  font-weight-normal">16 Ağustos</span></h5>
+										<h5 class="font-weight-bold mb-3">3,289.000 ₺ <span class="fs-12  font-weight-normal">16 Ağustos</span></h5>
 									</div>
 									<ul class="item-card2-list">
 										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 500 m²</a></li>
@@ -426,18 +446,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="card mb-0"style="border-radius: 5%;">
+					<div class="item" style="border: solid 2px; padding:10px 10px 10px 10px; border-radius: 5%; border-color: #ffffff;">
+						<div class="card mb-0"style="border-radius: 5%; background-color: #f2f2f2;">
 							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev2.jpg" alt="img" class="cover-image">
+								<img src="ev3.jpg" alt="img" class="cover-image fixed-size-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
 										<a href="col-left.html" class="text-dark"><h4 class="">240 m² 3+1 Satılık Daire</h4></a>
 										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Avcılar , İstanbul </p>
-										<h5 class="font-weight-bold mb-3">$25,784 <span class="fs-12  font-weight-normal">12 Eylül</span></h5>
+										<h5 class="font-weight-bold mb-3">5,090.000 ₺ <span class="fs-12  font-weight-normal">12 Eylül</span></h5>
 									</div>
 									<ul class="item-card2-list">
 										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 256 m²</a></li>
@@ -449,18 +469,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="card mb-0"style="border-radius: 5%;">
+					<div class="item" style="border: solid 2px; padding:10px 10px 10px 10px; border-radius: 5%; border-color: #ffffff;">
+						<div class="card mb-0"style="border-radius: 5%; background-color: #f2f2f2;">
 							<div class="item-card2-img"style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev2.jpg" alt="img" class="cover-image">
+								<img src="ev4.jpg" alt="img" class="cover-image fixed-size-image">
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
 										<a href="col-left.html" class="text-dark"><h4 class="">240 m² 2+1 Satılık Daire</h4></a>
 										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Kızılay , Ankara </p>
-										<h5 class="font-weight-bold mb-3">$89,005 <span class="fs-12  font-weight-normal">12 Temmuz</span></h5>
+										<h5 class="font-weight-bold mb-3">2,090.000 ₺ <span class="fs-12  font-weight-normal">12 Temmuz</span></h5>
 									</div>
 									<ul class="item-card2-list">
 										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 240 m²</a></li>
@@ -472,18 +492,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="card mb-0" style="border-radius: 5%;">
+					<div class="item" style="border: solid 2px; padding:10px 10px 10px 10px; border-radius: 5%; border-color: #ffffff;">
+						<div class="card mb-0" style="border-radius: 5%; background-color: #f2f2f2;">
 							<div class="item-card2-img" style="border-radius: 5%;">
 								<a href="col-left.html"></a>
-								<img src="ev2.jpg" alt="img" class="cover-image" >
+								<img src="ev5.jpg" alt="img" class="cover-image fixed-size-image" >
 							</div>
 							<div class="card-body">
 								<div class="item-card2">
 									<div class="item-card2-text">
 										<a href="col-left.html" class="text-dark"><h4 class="">340 m² 4+1 Satılık Daire</h4></a>
 										<p class="mb-2"><i class="fa fa-map-marker text-danger me-1"></i> Yakutiye , Erzurum</p>
-										<h5 class="font-weight-bold mb-3">$23,789 <span class="fs-12  font-weight-normal">22 Ağustos </span></h5>
+										<h5 class="font-weight-bold mb-3">3,500.000 ₺ <span class="fs-12  font-weight-normal">22 Ağustos </span></h5>
 									</div>
 									<ul class="item-card2-list">
 										<li><a href="javascript:void(0);"><i class="fa fa-arrows-alt text-muted me-1"></i> 340 m²</a></li>
@@ -496,19 +516,21 @@
 						</div>
 					</div>
 				</div>
-			
 			</div>
+			<br>
+			<br>
+			<br>
 		</section>
 		<!--Latest Ads-->
 
 		<!--Blogs-->
-		<section class="sptb bg-white">
+		<section class="white-dark text-black" style="background-color: #f2f2f2;">
 			<div class="container">
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Türkiye'den İlanlar</b></h2>
 					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color:#63707b; color: white; width: 200px; height: 40px;  vertical-align: top; float: right;">Tüm İlanları İncele</button> 
 					<br>
-					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
+					<p class="text-left" style="color: #63707b;">İlanlarımızı İnceleyebilirsiniz</p>
 
 				</div>
 				<div class="row">
@@ -521,7 +543,7 @@
 									</div>
 									
 									<div class="item-card-text">
-										<h4 class="mb-0">44,327<span><i class="fa fa-map-marker me-1 text-primary"></i>İSTANBUL</span></h4>
+										<h4 class="mb-0"> İSTANBUL<span style="color: #78b829;"><i class=" me-1 text-primary"></i>1.500.000 İLAN</span></h4>
 									</div>
 								</div>
 							</div>
@@ -539,7 +561,7 @@
 									</div>
 									
 									<div class="item-card-text">
-										<h4 class="mb-0">52,145<span><i class="fa fa-map-marker me-1 text-primary"></i>ANKARA</span></h4>
+										<h4 class="mb-0">ANKARA<span style="color: #78b829;"><i class="text-primary me-1"></i>500.000 İLAN</span></h4>
 									</div>
 								</div>
 							</div>
@@ -554,7 +576,7 @@
 									</div>
 									
 									<div class="item-card-text">
-										<h4 class="mb-0">63,263<span><i class="fa fa-map-marker text-primary me-1"></i>ERZURUM</span></h4>
+										<h4 class="mb-0">ERZURUM<span style="color: #78b829;"><i class="text-primary me-1"></i>295.000 İLAN</span></h4>
 									</div>
 								</div>
 							</div>
@@ -568,7 +590,7 @@
 										<img src="antalya.jpg" alt="img" style="border-radius: 20%; height: 300px;">
 									</div>
 									<div class="item-card-text">
-										<h4 class="mb-0">52,145<span><i class="fa fa-map-marker me-1 text-primary"></i>ANTALYA</span></h4>
+										<h4 class="mb-0">ANTALYA<span style="color: #78b829;"><i class="text-primary"></i>370.000 İLAN</span></h4>
 									</div>
 								</div>
 							</div>
@@ -580,6 +602,7 @@
 				</div>
 			</div>
 			<br> 
+			
 			<div class="item">
 				<div class="card mb-0" >
 					<div class="item7-card-img"  style="width: auto; height: auto;">
@@ -587,37 +610,35 @@
 		</div>
 	</div>
 </div>
-
+			<br>
+			
 		</section>
 		<!--Blogs-->
 		
 		<!-- News -->
-		<section class="sptb bg-white">
+		<section class="white-dark text-black" style="background-color: #f2f2f2;"></section>
 			<div class="container">
-			
 				<div class="section-title text-left">
 					<h2 style="display: inline-block;"><b>Bilgiye Dair İçerikler</b></h2>
 					<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px; vertical-align: top; float: right;">Tüm Emlak Haberleri</button> 
 					<br>
-					<p class="text-left">İlanlarımızı İnceleyebilirsiniz</p>
+					<p class="text-left" style="color: #63707b;">İlanlarımızı İnceleyebilirsiniz</p>
 
 				</div>
 				<div id="defaultCarousel" class="owl-carousel Card-owlcarousel owl-carousel-icons">
 					
 					<div class="item">
-						<div class="card mb-0" style="border-radius:10%;">
-							<div class="item7-card-img"  style="width: auto; height: auto;">
+						<div class="card mb-0" style="border-radius:10%; background-color: #f2f2f2;">
+							<div class="item7-card-img fixed-image-container"  style="border-radius: 10%;">
 								<a href="blog-details.html"></a>
-								<img src="dublexev.png" alt="img" class="cover-image" style="border-radius:10% ;" >
-								
+								<img src="dublexev.png" alt="img" class="cover-image" style="border-radius:10%;">
 							</div>
 							<div class="card-body p-4">
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">Dublex Ev Satın Alırken Neler..</h4></a>
 								<div class="item7-card-desc d-flex mb-2">
 									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>10 Eylül 2023</a>
-									
 								</div>
-								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">Dublex Ev Satın Alırken Neler..</h4></a>
-								<p>4+1 dubleks daire sadece 1 milyon TL! Teraslı, balkonlu, ebeveyn banyolu, 150 m2 lüks konut! Vakıfbank duyurdu! 120 ay vadeyle ev sahibi olun</p>
+								<p class="text-muted">4+1 dubleks daire sadece 1 milyon TL! Teraslı, balkonlu, ebeveyn banyolu, 150 m2 lüks konut! Vakıfbank duyurdu! 120 ay vadeyle ev sahibi olun..Eylül ayında sözleşmelerini yenilenecektir. Dublex Ev Satın Alırken Neler..</p>
 								<div class="d-flex align-items-center justify-content-between">
 								<div >
 										<button onclick="window.location.href='userprofile.html'" style="border-radius: 10px;border: 1px solid;  background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
@@ -627,19 +648,17 @@
 						</div>
 					</div>
 					<div class="item">
-						<div class="card mb-0"style="border-radius:10%;" >
-							<div class="item7-card-img" style="width: auto; height:auto;">
+						<div class="card mb-0"style="border-radius:10%; background-color: #f2f2f2;" >
+							<div class="item7-card-img fixed-image-container" style="border-radius: 10%;">
 								<a href="blog-details.html"></a>
 								<img src="gayrimenkul.png" alt="img" class="cover-image" style="border-radius:10%;">
-								
 							</div>
 							<div class="card-body p-4">
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">2023 Eylül Ayı Gayrimenkul</h4></a>
 								<div class="item7-card-desc d-flex mb-2">
 									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>8 Eylül 2023</a>
-									
 								</div>
-								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">2023 Eylül Ayı Gayrimenkul</h4></a>
-								<p>Konutlar için uygulanan kira zam sınırlaması işyerleri için geçerli değil. İşyerleri için ise kira zammı normalde 12 aylık enflasyon verilerine göre belli oluyor. Eylül ayında sözleşmelerini yenileyecekler için artış şu şekilde hesaplanacaktır…</p>
+								<p class="text-muted">Konutlar için uygulanan kira zam sınırlaması işyerleri için geçerli değil. İşyerleri için ise kira zammı normalde 12 aylık enflasyon verilerine göre belli oluyor. Eylül ayında sözleşmelerini yenileyecekler için artış şu şekilde hesaplanacaktır…</p>
 								<div class="d-flex align-items-center justify-content-between">
 									
 									<div >
@@ -650,18 +669,18 @@
 						</div>
 					</div>
 					<div class="item">
-						<div class="card mb-0" style="border-radius:10%;">
-							<div class="item7-card-img" style="width: 100%; height: 20%;">
+						<div class="card mb-0" style="border-radius:10%; background-color: #f2f2f2;">
+							<div class="item7-card-img fixed-image-container" style="border-radius: 10%;">
 								<a href="blog-details.html"></a>
 								<img src="kiradava.png" alt="img" class="cover-image" style="border-radius:10%;">
 							</div>
 							<div class="card-body p-4">
+								
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">Ev Sahipleri ve Kiracılar</h4></a>
 								<div class="item7-card-desc d-flex mb-2">
 									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>9 Eylül 2023</a>
-									
 								</div>
-								<a href="blog-details.html" class="text-dark"><h4 class="font-weight-semibold">Ev Sahipleri ve Kiracılar</h4></a>
-								<p>Gayrimenkul ve kira bedellerindeki artışlar, ev sahibi ile kiracı arasında yaşanan uyuşmazlıklar, komşuluk hukukundan kaynaklı anlaşmazlıklar...Tüm bu davalarda çözüm için ilk adres, 1 Eylül'den itibaren ara bulucular devrede. </p>
+								<p class="text-muted">Gayrimenkul ve kira bedellerindeki artışlar, ev sahibi ile kiracı arasında yaşanan uyuşmazlıklar, komşuluk hukukundan kaynaklı anlaşmazlıklar...Tüm bu davalarda çözüm için ilk adres, 1 Eylül'den itibaren ara bulucular devrede. </p>
 								<div class="d-flex align-items-center justify-content-between">
 									
 									<div >
@@ -673,19 +692,19 @@
 						</div>
 					</div>
 					<div class="item">
-    <div class="card mb-0" style="border-radius: 10%;">
-        <div class="item7-card-img" style="width: 100%; height: 20%; border-radius: 10%;">
-            <a href="blog-details.html"></a>
-            <img src="emlaksektörü.png" alt="img" class="cover-image" style="border-radius: 10%;">
-        </div>
-        <div class="card-body p-4">
-            <div class="item7-card-desc d-flex mb-2">
-                <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>26 Temmuz 2023</a>
-            </div>
-            <a href="blog-details.html" class="text-dark"><h4 class="font-weight-semibold">Emlak Sektöründe...</h4></a>
-            <p>Tüm Girişimci Emlak Müşavirleri Derneği (TÜGEM) Bolu İl Temsilcisi İlyas Özçelik, emlak sektöründe önemli bir değişikliği açıkladı. Özçelik, emlak ilanlarına yetki belgesi olmayan ve mülk sahibi olmayan emlak ofislerinin erişiminin yasaklandığını duyurdu.</p>
-            <div class="d-flex align-items-center justify-content-between">
-                <!-- "Devamını Oku" butonunu yeni bir div içine taşıdık -->
+						<div class="card mb-0" style="border-radius: 10%; background-color: #f2f2f2;">
+							<div class="item7-card-img fixed-image-container" style="border-radius: 10%;">
+								<a href="blog-details.html"></a>
+								<img src="emlaksektörü.png" alt="img" class="cover-image" style="border-radius: 10%;">
+							</div>
+							<div class="card-body p-4">
+								<a href="blog-details.html" class="text-dark"><h4 class="fs-20">Emlak Sektöründe...</h4></a>
+								<div class="item7-card-desc d-flex mb-2">
+									<a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>26 Temmuz 2023</a>
+								</div>
+								<p class="text-muted">Tüm Girişimci Emlak Müşavirleri Derneği (TÜGEM) Bolu İl Temsilcisi İlyas Özçelik, emlak sektöründe önemli bir değişikliği açıkladı. Özçelik, emlak ilanlarına yetki belgesi olmayan ve mülk sahibi olmayan emlak ofislerinin erişiminin yasaklandığını duyurdu.</p>
+								<div class="d-flex align-items-center justify-content-between">
+									<!-- "Devamını Oku" butonunu yeni bir div içine taşıdık -->
                 <div>
                     <button onclick="window.location.href='userprofile.html'" style="border-radius: 10px; border: 1px solid; background-color: #63707b; color: white; width: 200px; height: 40px;">Devamını oku</button>
                 </div>
@@ -693,11 +712,12 @@
         </div>
     </div>
 </div>
-
-					
-				</div>
+</div>
 			</div> 
+			<br>
+			<br>
 			
+
 		</section>
 		<!--News -->
 
@@ -711,18 +731,16 @@
 						<div class="row" >
                             <hr> 
 							<div class="col-lg-3 col-md-12">
-                        		<h6>EMLAK LAZIM </h6>
-								
+                        		<h6><b>EMLAK LAZIM</b></h6>
                                     <a href="javascript:;"style="color: black";>Hakkımızda</a text-black></li> <br/>
                                 	<a href="javascript:;"style="color: black";>Reklam</a></li><br/>
 									<a href="javascript:;"style="color: black">Kurumsal Üyelik</a></li><br/>
 									<a href="javascript:;"style="color: black">Emlak Haber</a></li><br/>
 									<a href="javascript:;"style="color: black">Site Haritası</a></li><br/>
 									<a href="javascript:;"style="color: black">Bize Ulaşın</a></li><br/> 
-                                 
                                 </div>
                                 <div class="col-lg-2 col-sm-6"; >
-								<h6>Hakkımızda</h6>
+								<h6><b>HAKKIMIZDA</b></h6>
 						            <ul class="list-unstyled mb-0"> 
                                     <a href="javascript:;"style="color: black">Yasal Uyarı</a></li> <br/>
                                 	<a href="javascript:;"style="color: black">Kullanım Koşulları</a></li><br/>
@@ -734,8 +752,7 @@
 							</div>
 
                             <div class="col-lg-2 col-sm-6">
-								<h6>Diğer</h6>
-								 
+								<h6><b>DİĞER</b></h6>
 								<ul class="list-unstyled mb-0" text-color="black"> 
                                     <a href="javascript:;"style="color: black">İlan Yayınlama Kuralları</a></li> <br/>
                                 	<a href="javascript:;"style="color: black">Kullanım Koşulları</a></li><br/>
@@ -747,21 +764,8 @@
 							</div>
 
 							<div class="col-lg-3 col-sm-6">
-								<h6>İletişim</h6>
-								
-								<ul class="list-unstyled mb-0">
-									<li>
-										<a href="javascript:void(0);" style="color: black" ><i class="fa fa-home me-3 text-black"></i> Adres</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);"style="color: black"><i class="fa fa-envelope me-3 text-black"></i> Mail</a></li>
-									<li>
-										<a href="javascript:void(0);"style="color: black"><i class="fa fa-phone me-3 text-black"></i> Telefon</a>
-									</li>
-									 <li>
-										<a href="javascript:void(0);"style="color: black"><i class="fa fa-print me-3 text-black"></i> Faks</a>
-									</li>
-								</ul>
+								<h6><b>BİZİ TAKİP ET</b></h6>
+								<img src="4.jpg"style="width: 50px;" height="50px"/>
 								<ul class="list-unstyled list-inline mt-3">
 									<li class="list-inline-item">
 									  <a class="btn-floating btn-sm rgba-black-slight mx-1 waves-effect waves-light">
@@ -784,6 +788,9 @@
 									  </a>
 									</li>
 								</ul>
+								<img src="1.jpg"/>
+								<img src="2.jpg"/>
+								<img src="3.jpg"/>
 							</div>
 						</div>
 					</div>
